@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>bmi</title>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body background="../static/back.jpg">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" style="color: cornsilk">DIET PLANNER</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="disabled"><a>BMI</a></li>
+        <li class="active"><a href="/bmr/">Daily Calorie Intake</a></li>
+        <li class="active"><a href="/diet/">Diet Plan</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/index/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container col-md-4 offset-ms-4">
+    <h2 style="color: black">BMI Calculator </h2>
+
+
+   <form method="POST" action="/bmi/">
+   {% csrf_token %}
+
+       <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-lg" style="color:black;width: 200px;font-weight: bold;">Enter Your Height</span><br>
+            <br>
+              <input type="float" min="0" max="220" placeholder="  Meters" name="height"> <br>
+         <br> 
+         </div>
+       </div>
+
+       <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default" style="color:black;font-weight: bold;">Enter Your Weight</span>  <br>
+             <br>  <input type="number" class="form-control"  placeholder="KiloGrams"aria-label="Sizing example input"style="width: 180px;height: 30px;" aria-describedby="inputGroup-sizing-default" name="weight">
+         <br>  </div>
+       </div>
+       <br>
+       <button type="submit" class="btn btn-primary btn-dark btn-lg btn-lg" style="background-color:black; height:40px;">Calculate Your BMI</button> &nbsp;
+
+   </form>
+
+   <h2 style="color: black"> {{xyz}} {{bmi}} {{ abc}}</h2>
+       
+</div>            
+       
+
+
+
+</body>
+</html>
+
+
